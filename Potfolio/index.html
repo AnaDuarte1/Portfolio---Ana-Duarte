@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Beatriz Duarte | Portfólio</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0ea5e9;
+            --secondary-color: #8b5cf6;
+            --bg-dark: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #f1f5f9;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: var(--primary-color);
+        }
+
+        /* Navbar Customization */
+        .navbar {
+            background: rgba(15, 23, 42, 0.8) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-link {
+            color: #cbd5e1 !important;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.15), transparent),
+                        radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.15), transparent);
+        }
+
+        .hero-img {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            border: 5px solid var(--primary-color);
+            animation: morph 8s ease-in-out infinite;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        @keyframes morph {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        }
+
+        .btn-custom {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.4);
+            color: white;
+        }
+
+        /* Section Titles */
+        .section-title {
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            bottom: -10px;
+            left: 0;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Academic Timeline */
+        .timeline-item {
+            padding-left: 30px;
+            border-left: 2px solid var(--primary-color);
+            position: relative;
+            padding-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            left: -9px;
+            top: 0;
+        }
+
+        /* Project Badges */
+        .badge-tech {
+            background: rgba(14, 165, 233, 0.15);
+            color: var(--primary-color);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            display: inline-block;
+            border-radius: 50px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 50px 0;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero { padding: 100px 0 50px; text-align: center; }
+            .hero-img { margin-top: 30px; max-width: 200px; }
+            .section-title { width: 100%; text-align: center; }
+            .section-title::after { left: 25%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">ANA<span class="text-info">BEATRIZ</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#academico">Trajetória</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h5 class="text-info mb-3">Estudante de Sistemas para Internet</h5>
+                    <h1 class="display-4 mb-4">Ana Beatriz Rocha Duarte</h1>
+                    <p class="lead mb-5 text-secondary">Apaixonada por tecnologia, otimização de processos e gestão de dados.</p>
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start flex-wrap">
+                        <a href="#projetos" class="btn btn-custom">Ver Projetos</a>
+                        <a href="https://github.com/AnaDuarte1" target="_blank" class="btn btn-outline-light rounded-pill px-4 py-2">
+                            <i class="fab fa-github me-2"></i>GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center">
+                    <img src="FotoAna.jpeg" alt="Ana Beatriz" class="hero-img mt-5 mt-lg-0">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-5">
+        <div class="container py-5">
+            <div class="row align-items-stretch">
+                <div class="col-12">
+                    <h2 class="section-title">Sobre Mim</h2>
+                </div>
+                <div class="col-lg-8">
+                    <div class="glass-card p-4 h-100">
+                        <p>Tenho 20 anos e sou natural de Araraquara. Minha jornada na tecnologia começou com o curso técnico e hoje sigo evoluindo na graduação em Sistemas para Internet no IFSP.</p>
+                        <p>Busco constantemente aplicar meus conhecimentos técnicos para resolver problemas reais. Atualmente, atuo como estagiária na <strong>JBT Marel</strong>, focada em suporte de TI, onde desenvolvo agilidade na resolução de questões de hardware e software utilizando sistemas de tickets como FreshDesk e TopDesk.</p>
+                        <p>Tenho forte envolvimento em projetos sociais e acadêmicos que promovem a <strong>diversidade nas exatas</strong> e o pensamento computacional.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="glass-card p-4 text-center h-100 d-flex flex-column justify-content-center">
+                        <div class="mb-4">
+                            <h3 class="h1 text-info mb-0">800+</h3>
+                            <p class="text-secondary">Horas em Projetos de Extensão</p>
+                        </div>
+                        <div>
+                            <h3 class="h1 text-secondary mb-0">Eng/Port</h3>
+                            <p class="text-secondary">Inglês Intermediário</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades Section -->
+    <section id="habilidades" class="py-5 bg-dark">
+        <div class="container py-5">
+            <h2 class="section-title">Habilidades Técnicas</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="glass-card p-4 h-100">
+                        <h5 class="text-info mb-3"><i class="fas fa-code me-2"></i>Desenvolvimento</h5>
+                        <div class="d-flex flex-wrap">
+                            <span class="badge-tech">PHP</span>
+                            <span class="badge-tech">Java</span>
+                            <span class="badge-tech">Spring Boot</span>
+                            <span class="badge-tech">JavaScript</span>
+                            <span class="badge-tech">C</span>
+                            <span class="badge-tech">HTML5/CSS3</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-card p-4 h-100">
+                        <h5 class="text-info mb-3"><i class="fas fa-database me-2"></i>Dados & Infra</h5>
+                        <div class="d-flex flex-wrap">
+                            <span class="badge-tech">SQL</span>
+                            <span class="badge-tech">Oracle</span>
+                            <span class="badge-tech">Hardware</span>
+                            <span class="badge-tech">Software</span>
+                            <span class="badge-tech">Tickets (Fresh/Top)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-card p-4 h-100">
+                        <h5 class="text-info mb-3"><i class="fas fa-microchip me-2"></i>Inovação</h5>
+                        <div class="d-flex flex-wrap">
+                            <span class="badge-tech">Arduino</span>
+                            <span class="badge-tech">Robótica</span>
+                            <span class="badge-tech">App Inventor</span>
+                            <span class="badge-tech">Scratch</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trajetória Section -->
+    <section id="academico" class="py-5">
+        <div class="container py-5">
+            <h2 class="section-title">Formação & Experiência</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <!-- Estágio -->
+                    <div class="timeline-item">
+                        <h5 class="text-info">Estágio em Suporte de TI - JBT Marel</h5>
+                        <p class="text-secondary small">2025 - Atualmente</p>
+                        <p>Suporte ao usuário em hardware/software e gestão de chamados via sistemas de tickets focando em SLA e eficiência.</p>
+                    </div>
+                    <!-- Graduação -->
+                    <div class="timeline-item">
+                        <h5 class="text-info">Sistemas para Internet (Graduação)</h5>
+                        <p class="text-secondary small">IFSP Araraquara | Cursando</p>
+                        <p>Aprofundamento em desenvolvimento web fullstack e arquitetura de sistemas.</p>
+                    </div>
+                    <!-- Iniciação -->
+                    <div class="timeline-item">
+                        <h5 class="text-info">Iniciação Científica - Pensamento Computacional</h5>
+                        <p class="text-secondary small">Concluído em 2023</p>
+                        <p>Projeto focado na criação de objetos de aprendizagem com MIT App Inventor para o desenvolvimento lógico de estudantes.</p>
+                    </div>
+                    <!-- Técnico -->
+                    <div class="timeline-item">
+                        <h5 class="text-info">Técnico em Informática</h5>
+                        <p class="text-secondary small">IFSP Araraquara | Concluído</p>
+                        <p>Base sólida em lógica de programação, banco de dados e manutenção de computadores.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+     <!-- Seção de Projetos Principais (Solicitado) -->
+    <section id="projetos" class="py-5 bg-dark">
+        <div class="container py-5">
+            <h2 class="section-title">Principais Projetos Acadêmicos</h2>
+            <div class="row g-4">
+                <!-- Projeto 1: ecoAGE -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card glass-card h-100 overflow-hidden">
+                        <div class="card-body">
+                            <div class="text-info mb-3 h4"><i class="fas fa-leaf me-2"></i>ECOAGE</div>
+                            <p class="card-text small text-secondary">Plataforma dedicada à sustentabilidade, desenvolvida para promover a conscientização e gestão de recursos.</p>
+                            <div class="mb-4">
+                                <span class="badge-tech">Fullstack</span>
+                                <span class="badge-tech">Web</span>
+                                <span class="badge-tech">Sustentabilidade</span>
+                            </div>
+                            <a href="https://github.com/Eco-Age/ecoage.git" target="_blank" class="text-decoration-none text-info fw-bold">
+                                Ver Repositório <i class="fas fa-external-link-alt ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 2: BitPAy -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card glass-card h-100 overflow-hidden">
+                        <div class="card-body">
+                            <div class="text-info mb-3 h4"><i class="fas fa-wallet me-2"></i>BitPAY</div>
+                            <p class="card-text small text-secondary">Sistema de gerenciamento de pagamentos digitais, focado nas transações básicas de um banco digital.</p>
+                            <div class="mb-4">
+                                <span class="badge-tech">Java</span>
+                                <span class="badge-tech">ORACLE</span>
+                            </div>
+                            <a href="https://github.com/gabrielalb5/bitpay.git" target="_blank" class="text-decoration-none text-info fw-bold">
+                                Ver Repositório <i class="fas fa-external-link-alt ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 3: MentesMAticas -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card glass-card h-100 overflow-hidden">
+                        <div class="card-body">
+                            <div class="text-info mb-3 h4"><i class="fas fa-brain me-2"></i>MentesMaticas</div>
+                            <p class="card-text small text-secondary">Jogo educativo interativo voltado para o ensino de matemática, utilizando lógica de programação para criar desafios lúdicos.</p>
+                            <div class="mb-4">
+                                <span class="badge-tech">JavaScript</span>
+                                <span class="badge-tech">Lógica</span>
+                                <span class="badge-tech">Educação</span>
+                            </div>
+                            <a href="https://github.com/gabi-ulisses/mentesmaticas.git" target="_blank" class="text-decoration-none text-info fw-bold">
+                                Ver Repositório <i class="fas fa-external-link-alt ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projetos & Atividades Section -->
+    <section id="projetos" class="py-5 bg-dark">
+        <div class="container py-5">
+            <h2 class="section-title">Destaques e Extensão</h2>
+            <div class="row g-4">
+                <!-- Projeto 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card glass-card h-100 overflow-hidden">
+                        <div class="card-body">
+                            <div class="text-info mb-2"><i class="fas fa-award fa-2x"></i></div>
+                            <h5 class="card-title text-info">Technovation Girls</h5>
+                            <p class="card-text small text-secondary">Participação na competição global em 2022, representando o IFSP e desenvolvendo soluções tecnológicas com impacto social.</p>
+                            <span class="badge-tech">Mobile</span>
+                            <span class="badge-tech">Social</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Projeto 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card glass-card h-100 overflow-hidden">
+                        <div class="card-body">
+                            <div class="text-info mb-2"><i class="fas fa-users fa-2x"></i></div>
+                            <h5 class="card-title text-info">Diversidade nas Exatas</h5>
+                            <p class="card-text small text-secondary">Projeto de extensão com 582 horas dedicadas a promover a inclusão de minorias nas áreas de ciência e tecnologia.</p>
+                            <span class="badge-tech">Extensão</span>
+                            <span class="badge-tech">Educação</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Projeto 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card glass-card h-100 overflow-hidden">
+                        <div class="card-body">
+                            <div class="text-info mb-2"><i class="fas fa-microphone fa-2x"></i></div>
+                            <h5 class="card-title text-info">Palestrante & Representante</h5>
+                            <p class="card-text small text-secondary">Representação do projeto "Meninas nas Exatas" em Brasília e palestras sobre linguagens de programação no IFSP.</p>
+                            <span class="badge-tech">Soft Skills</span>
+                            <span class="badge-tech">Liderança</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="py-5">
+        <div class="container py-5 text-center">
+            <h2 class="section-title">Vamos nos conectar?</h2>
+            <p class="mb-5 text-secondary">Sempre pronta para novos desafios e trocas de conhecimento.</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="glass-card p-4">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <a href="mailto:anaberocha1333@gmail.com" class="text-decoration-none text-light">
+                                    <i class="fas fa-envelope text-info d-block h3 mb-2"></i>
+                                    <span>E-mail</span>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="https://github.com/AnaDuarte1" target="_blank" class="text-decoration-none text-light">
+                                    <i class="fab fa-github text-info d-block h3 mb-2"></i>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="https://wa.me/5516996262378" target="_blank" class="text-decoration-none text-light">
+                                    <i class="fab fa-whatsapp text-info d-block h3 mb-2"></i>
+                                    <span>WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-secondary bg-dark">
+        <div class="container">
+            <p>© 2024 - Ana Beatriz Rocha Duarte. Criado com paixão por tecnologia.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
